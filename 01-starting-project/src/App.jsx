@@ -16,6 +16,9 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
+        <section id='examples'>
+          <h2>Examples</h2>
+        </section>
       </main>
     </div>
   );
