@@ -8,7 +8,7 @@ function App() {
   const [tabContent, setTabContent] = useState();
 
   function handleSelect(selectedButton) {
-    return setTabContent(selectedButton);
+    setTabContent(selectedButton);
   }
 
   return (
