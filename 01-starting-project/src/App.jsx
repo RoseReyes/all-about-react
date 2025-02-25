@@ -22,7 +22,7 @@ function App() {
             {CORE_CONCEPTS.map((conceptItem) => {
               return (
                 <CoreConcept
-                  key={conceptItem.id}
+                  key={conceptItem.title}
                   {...conceptItem}
                 />
               );
