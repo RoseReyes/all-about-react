@@ -16,7 +16,6 @@ export default function SelectedTopics() {
       title='Examples'
       id='examples'>
       <Tabs
-        buttonContainer='menu'
         buttons={
           <>
             <TabButton
