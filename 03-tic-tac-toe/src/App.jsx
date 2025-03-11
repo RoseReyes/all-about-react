@@ -1,6 +1,7 @@
 import GameBoard from './components/GameBoard/GameBoard';
 import Log from './components/Log/Log';
 import Player from './components/Player/Player';
+import { WINNING_COMBINATIONS } from './winning-combinations';
 import { useState } from 'react';
 
 function deriveActivePlayer(gameTurns) {
