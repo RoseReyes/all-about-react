@@ -14,7 +14,7 @@ function App() {
     setGameTurns((prevTurns) => {
       let currentPlayer = 'X';
 
-      if (prevTurns.length > 0 && prevTurns[0].currentPlayer === 'X') {
+      if (prevTurns.length > 0 && prevTurns[0].player === 'X') {
         currentPlayer = 'O';
       }
 
@@ -47,6 +47,7 @@ function App() {
         <GameBoard
           onGameBoard={handleGameBoard}
           activePlayerSymbol={activePlayer}
+          turns={gameTurns}
         />
       </div>
       <Log />
