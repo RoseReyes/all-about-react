@@ -1,11 +1,7 @@
 import { calculateInvestmentResults, formatter } from '../util/investment.js';
-import { useEffect, useState } from 'react';
 
 export function ResultTable({ input }) {
-  const [resultsData, setResultsData] = useState(
-    calculateInvestmentResults(input)
-  );
-
+  const resultsData = calculateInvestmentResults(input);
   const initialInvestment =
     resultsData[0].valueEndOfYear -
     resultsData[0].interest -
