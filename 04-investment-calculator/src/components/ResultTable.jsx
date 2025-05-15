@@ -1,4 +1,5 @@
-export function ResultTable() {
+export function ResultTable({ input }) {
+  console.log(input);
   return (
     <table id='result'>
       <thead>

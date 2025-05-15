@@ -1,24 +1,4 @@
-import { calculateInvestmentResults, formatter } from '../util/investment';
-
-import { useState } from 'react';
-
-export default function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 12000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
-
-  const handleUserInput = (inputIdentifier, newValue) => {
-    setUserInput((prevUserInput) => {
-      return {
-        ...prevUserInput,
-        [inputIdentifier]: newValue,
-      };
-    });
-  };
-
+export default function UserInput({ userInput, onChange }) {
   return (
     <section id='user-input'>
       <div className='input-group'>
@@ -28,9 +8,7 @@ export default function UserInput() {
             value={userInput.initialInvestment}
             type='number'
             required
-            onChange={(e) =>
-              handleUserInput('initialInvestment', e.target.value)
-            }
+            onChange={(e) => onChange('initialInvestment', e.target.value)}
           />
         </p>
         <p>
@@ -39,9 +17,7 @@ export default function UserInput() {
             value={userInput.annualInvestment}
             type='number'
             required
-            onChange={(e) =>
-              handleUserInput('annualInvestment', e.target.value)
-            }
+            onChange={(e) => onChange('annualInvestment', e.target.value)}
           />
         </p>
       </div>
@@ -52,7 +28,7 @@ export default function UserInput() {
             value={userInput.expectedReturn}
             type='number'
             required
-            onChange={(e) => handleUserInput('expectedReturn', e.target.value)}
+            onChange={(e) => onChange('expectedReturn', e.target.value)}
           />
         </p>
         <p>
@@ -61,7 +37,7 @@ export default function UserInput() {
             value={userInput.duration}
             type='number'
             required
-            onChange={(e) => handleUserInput('duration', e.target.value)}
+            onChange={(e) => onChange('duration', e.target.value)}
           />
         </p>
       </div>
