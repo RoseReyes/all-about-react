@@ -25,17 +25,23 @@ export default function UserInput() {
         <p>
           <label id='user-label'>Initial Investments</label>
           <input
+            value={userInput}
             type='number'
             required
-            onChange={(e) => handleUserInput('initialInvestment', e)}
+            onChange={(e) =>
+              handleUserInput('initialInvestment', e.target.value)
+            }
           />
         </p>
         <p>
           <label id='user-label'>ANNUAL INVESTMENTS</label>
           <input
+            value={userInput}
             type='number'
             required
-            onChange={(e) => handleUserInput('annualInvestment', e)}
+            onChange={(e) =>
+              handleUserInput('annualInvestment', e.target.value)
+            }
           />
         </p>
       </div>
@@ -43,17 +49,19 @@ export default function UserInput() {
         <p>
           <label id='user-label'>Expected Return</label>
           <input
+            value={userInput}
             type='number'
             required
-            onChange={(e) => handleUserInput('expectedReturn', e)}
+            onChange={(e) => handleUserInput('expectedReturn', e.target.value)}
           />
         </p>
         <p>
           <label id='user-label'>Duration</label>
           <input
+            value={userInput}
             type='number'
             required
-            onChange={(e) => handleUserInput('duration', e)}
+            onChange={(e) => handleUserInput('duration', e.target.value)}
           />
         </p>
       </div>
