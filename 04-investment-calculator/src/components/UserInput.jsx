@@ -10,6 +10,15 @@ export default function UserInput() {
     duration: 10,
   });
 
+  const handleUserInput = (inputIdentifier, newValue) => {
+    setUserInput((prevUserInput) => {
+      return {
+        ...prevUserInput,
+        [inputIdentifier]: newValue,
+      };
+    });
+  };
+
   return (
     <section id='user-input'>
       <div className='input-group'>
@@ -18,7 +27,7 @@ export default function UserInput() {
           <input
             type='number'
             required
-            handleUserInput
+            onChange={(e) => handleUserInput('initialInvestment', e)}
           />
         </p>
         <p>
@@ -26,6 +35,7 @@ export default function UserInput() {
           <input
             type='number'
             required
+            onChange={(e) => handleUserInput('annualInvestment', e)}
           />
         </p>
       </div>
@@ -35,6 +45,7 @@ export default function UserInput() {
           <input
             type='number'
             required
+            onChange={(e) => handleUserInput('expectedReturn', e)}
           />
         </p>
         <p>
@@ -42,6 +53,7 @@ export default function UserInput() {
           <input
             type='number'
             required
+            onChange={(e) => handleUserInput('duration', e)}
           />
         </p>
       </div>
