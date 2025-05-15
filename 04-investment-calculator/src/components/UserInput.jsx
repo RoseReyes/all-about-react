@@ -25,7 +25,7 @@ export default function UserInput() {
         <p>
           <label id='user-label'>Initial Investments</label>
           <input
-            value={userInput}
+            value={userInput.initialInvestment}
             type='number'
             required
             onChange={(e) =>
@@ -36,7 +36,7 @@ export default function UserInput() {
         <p>
           <label id='user-label'>ANNUAL INVESTMENTS</label>
           <input
-            value={userInput}
+            value={userInput.annualInvestment}
             type='number'
             required
             onChange={(e) =>
@@ -49,7 +49,7 @@ export default function UserInput() {
         <p>
           <label id='user-label'>Expected Return</label>
           <input
-            value={userInput}
+            value={userInput.expectedReturn}
             type='number'
             required
             onChange={(e) => handleUserInput('expectedReturn', e.target.value)}
@@ -58,7 +58,7 @@ export default function UserInput() {
         <p>
           <label id='user-label'>Duration</label>
           <input
-            value={userInput}
+            value={userInput.duration}
             type='number'
             required
             onChange={(e) => handleUserInput('duration', e.target.value)}
