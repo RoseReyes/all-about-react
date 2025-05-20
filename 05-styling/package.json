@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
+    "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^6.1.18"
+    "styled-components": "^6.1.18",
+    "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
