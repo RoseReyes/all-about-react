@@ -6,6 +6,7 @@ const Player = () => {
 
   const handleClick = () => {
     setEnteredPlayerName(playerName.current.value);
+    playerName.current.value = '';
   };
 
   return (
