@@ -1,5 +1,7 @@
 import { useImperativeHandle, useRef } from 'react';
 
+import { createPortal } from 'react-dom';
+
 const ResultModal = ({ onReset, targetTime, remainingTime, ref }) => {
   const dialog = useRef();
   const userLost = remainingTime <= 0;
@@ -13,7 +15,7 @@ const ResultModal = ({ onReset, targetTime, remainingTime, ref }) => {
     };
   });
 
-  return (
+  return createPortal(
     <dialog
       className='result-modal'
       ref={dialog}>
@@ -31,7 +33,8 @@ const ResultModal = ({ onReset, targetTime, remainingTime, ref }) => {
         onSubmit={onReset}>
         <button>Close</button>
       </form>
-    </dialog>
+    </dialog>,
+    document.getElementById('modal')
   );
 };
 
