@@ -1,8 +1,9 @@
+import Container from './ui/Container.jsx';
 import Input from './ui/CustomInput.jsx';
 
 const NewProject = () => {
   return (
-    <div className='w-[35rem] mt-16'>
+    <Container>
       <menu className='flex items-center justify-end gap-4 my-4'>
         <li>
           <button className='text-stone-800 hover:text-stone-950'>
@@ -29,7 +30,7 @@ const NewProject = () => {
           type='date'
         />
       </div>
-    </div>
+    </Container>
   );
 };
 
