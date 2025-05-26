@@ -1,20 +1,32 @@
+import Input from './ui/CustomInput.jsx';
+
 const NewProject = () => {
   return (
     <>
       <div>
-        <button>Cancel</button>
-        <button>Save</button>
+        <menu className='flex items-center justify-end gap-4 my-4'>
+          <li>
+            <button>Cancel</button>
+          </li>
+          <li>
+            <button>Save</button>
+          </li>
+        </menu>
       </div>
-      <form>
-        <label>TITLE</label>
-        <input type='text' />
-
-        <label>DESCRIPTION</label>
-        <input type='text' />
-
-        <label>DUE DATE</label>
-        <input type='text' />
-      </form>
+      <div>
+        <Input
+          label='TITLE'
+          type='text'
+        />
+        <Input
+          label='DESCRIPTION'
+          textarea
+        />
+        <Input
+          label='DUE DATE'
+          type='date'
+        />
+      </div>
     </>
   );
 };

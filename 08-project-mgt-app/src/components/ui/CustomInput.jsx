@@ -1,8 +1,10 @@
-const Input = ({ label, ...props }) => {
+const Input = ({ label, isTextarea, ...props }) => {
   return (
     <>
-      <label>{label}</label>
-      <input {...props} />
+      <p>
+        <label>{label}</label>
+        {isTextarea ? <textarea {...props} /> : <input {...props} />}
+      </p>
     </>
   );
 };
