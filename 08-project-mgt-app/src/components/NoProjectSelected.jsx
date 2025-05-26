@@ -1,7 +1,7 @@
 import Button from './ui/Button.jsx';
 import noProjectImage from '../assets/no-projects.png';
 
-const NoProjectSelected = () => {
+const NoProjectSelected = ({ onStartAddProject }) => {
   return (
     <div className='mt-2 text-center w-2/3'>
       <img
@@ -16,7 +16,7 @@ const NoProjectSelected = () => {
         Select a project or get started with a new one
       </p>
       <p className='mt-8'>
-        <Button>Create a new project</Button>
+        <Button onClick={onStartAddProject}>Create a new project</Button>
       </p>
     </div>
   );
