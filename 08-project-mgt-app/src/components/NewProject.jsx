@@ -24,7 +24,7 @@ const NewProject = ({ onAdd }) => {
       <menu className='flex items-center justify-end gap-4 my-4'>
         <li>
           <button className='text-stone-800 hover:text-stone-950'>
-            Cancel
+            Cancel onClick={handleCancel}
           </button>
         </li>
         <li>
