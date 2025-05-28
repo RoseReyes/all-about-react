@@ -1,7 +1,7 @@
 import Input from './ui/Input.jsx';
 import { useRef } from 'react';
 
-const NewProject = () => {
+const NewProject = ({ onAdd }) => {
   const titleRef = useRef();
   const descriptionRef = useRef();
   const dueDateRef = useRef();
@@ -11,7 +11,12 @@ const NewProject = () => {
     const enteredDescription = descriptionRef.current.value;
     const enteredDueDate = dueDateRef.current.value;
 
-    // Todo: validation
+    onAdd({
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate,
+    });
+    // Todo: validation: if this entry does not exist in the list we add it else don't add
   };
 
   return (
