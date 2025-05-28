@@ -27,12 +27,12 @@ const App = () => {
 
       return {
         ...prevState,
+        selectedProjectId: undefined,
         projects: [...prevState.projects, newProject],
       };
     });
   };
 
-  console.log(projectsState.projects);
   let content;
 
   if (projectsState.selectedProjectId === null) {
