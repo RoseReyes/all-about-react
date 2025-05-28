@@ -32,7 +32,6 @@ const App = () => {
     });
   };
 
-  console.log(projectsState, 'list of projects');
   let content;
 
   if (projectsState.selectedProjectId === null) {
