@@ -1,5 +1,7 @@
+import { createPortal } from 'react-dom';
+
 const ErrorModal = () => {
-  return (
+  return createPortal(
     <dialog className='backdrop:bg-stone-900/90 p-4 rounded-md shadow-md'>
       <h2>
         <strong>Incomplete Form</strong>
@@ -8,7 +10,8 @@ const ErrorModal = () => {
         Please check the form and make sure all required fields are filled out
         correctly.
       </p>
-    </dialog>
+    </dialog>,
+    document.getElementById('modal-root')
   );
 };
 
