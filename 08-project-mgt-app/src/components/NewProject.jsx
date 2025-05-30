@@ -37,7 +37,7 @@ const NewProject = ({ onAdd }) => {
           <strong>Invalid Input</strong>
         </h2>
         <p className='text-stone-600 mt-4'>
-          Oops ... looks like you forgot to enter values.
+          Oops ... looks like you forgot to enter a value.
         </p>
         <p className='text-stone-600 mt-4'>
           Please check the form and make sure all fields are provided with valid
