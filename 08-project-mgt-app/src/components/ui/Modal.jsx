@@ -3,7 +3,7 @@ import { useImperativeHandle, useRef } from 'react';
 import Button from './Button';
 import { createPortal } from 'react-dom';
 
-const Modal = ({ children, ref }) => {
+const Modal = ({ children, buttonCaption, ref }) => {
   const dialogRef = useRef();
 
   useImperativeHandle(ref, () => {
@@ -23,7 +23,7 @@ const Modal = ({ children, ref }) => {
         method='dialog'
         className='flex justify-end'>
         <Button className='mt-6 px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950'>
-          Close
+          {buttonCaption}
         </Button>
       </form>
     </dialog>,

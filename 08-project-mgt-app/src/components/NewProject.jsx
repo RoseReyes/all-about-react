@@ -5,7 +5,7 @@ import { useRef } from 'react';
 
 const NewProject = ({ onAdd }) => {
   const titleRef = useRef();
-  const dialogRef = useRef();
+  const modalRef = useRef();
   const descriptionRef = useRef();
   const dueDateRef = useRef();
 
@@ -19,25 +19,29 @@ const NewProject = ({ onAdd }) => {
       enteredDescription.trim() === '' ||
       enteredDueDate.trim() === ''
     ) {
-      dialogRef.current.open();
-    } else {
-      onAdd({
-        title: enteredTitle,
-        description: enteredDescription,
-        dueDate: enteredDueDate,
-      });
+      modalRef.current.open();
+      return;
     }
+
+    onAdd({
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate,
+    });
   };
 
   return (
     <>
-      <Modal ref={dialogRef}>
+      <Modal ref={modalRef}>
         <h2>
-          <strong>Incomplete Form</strong>
+          <strong>Invalid Input</strong>
         </h2>
         <p className='text-stone-600 mt-4'>
-          Please check the form and make sure all required fields are filled out
-          correctly.
+          Oops ... looks like you forgot to enter values.
+        </p>
+        <p className='text-stone-600 mt-4'>
+          Please check the form and make sure all fields are provided with valid
+          values.
         </p>
       </Modal>
       <div className='w-[35rem] mt-16'>
