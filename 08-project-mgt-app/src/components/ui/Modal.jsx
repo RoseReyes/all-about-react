@@ -8,7 +8,7 @@ const Modal = ({ children, ref }) => {
   useImperativeHandle(ref, () => {
     return {
       open() {
-        dialog.current.showModal();
+        dialogRef.current.showModal();
       },
     };
   });
