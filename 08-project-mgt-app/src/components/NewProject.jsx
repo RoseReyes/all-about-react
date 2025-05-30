@@ -1,8 +1,10 @@
 import Input from './ui/Input.jsx';
+import Modal from './ui/Modal.jsx';
 import { useRef } from 'react';
 
 const NewProject = ({ onAdd }) => {
   const titleRef = useRef();
+  const dialogRef = useRef();
   const descriptionRef = useRef();
   const dueDateRef = useRef();
 
@@ -16,59 +18,61 @@ const NewProject = ({ onAdd }) => {
       enteredDescription.trim() === '' ||
       enteredDueDate.trim() === ''
     ) {
-      let modalChildren = (
-        <>
-          <h2>
-            <strong>Incomplete Form</strong>
-          </h2>
-          <p>
-            Please check the form and make sure all required fields are filled
-            out correctly.
-          </p>
-        </>
-      );
+      dialogRef.current.open();
+    } else {
+      onAdd({
+        title: enteredTitle,
+        description: enteredDescription,
+        dueDate: enteredDueDate,
+      });
     }
-    onAdd({
-      title: enteredTitle,
-      description: enteredDescription,
-      dueDate: enteredDueDate,
-    });
   };
 
   return (
-    <div className='w-[35rem] mt-16'>
-      <menu className='flex items-center justify-end gap-4 my-4'>
-        <li>
-          <button className='text-stone-800 hover:text-stone-950'>
-            Cancel onClick={handleCancel}
-          </button>
-        </li>
-        <li>
-          <button
-            className='px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950'
-            onClick={handleSave}>
-            Save
-          </button>
-        </li>
-      </menu>
-      <div>
-        <Input
-          ref={titleRef}
-          label='Title'
-          type='text'
-        />
-        <Input
-          ref={descriptionRef}
-          label='Description'
-          textarea
-        />
-        <Input
-          ref={dueDateRef}
-          label='Due Date'
-          type='date'
-        />
+    <>
+      <Modal ref={dialogRef}>
+        <h2>
+          <strong>Incomplete Form</strong>
+        </h2>
+        <p>
+          Please check the form and make sure all required fields are filled out
+          correctly.
+        </p>
+      </Modal>
+      <div className='w-[35rem] mt-16'>
+        <menu className='flex items-center justify-end gap-4 my-4'>
+          <li>
+            <button className='text-stone-800 hover:text-stone-950'>
+              Cancel onClick={handleCancel}
+            </button>
+          </li>
+          <li>
+            <button
+              className='px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950'
+              onClick={handleSave}>
+              Save
+            </button>
+          </li>
+        </menu>
+        <div>
+          <Input
+            ref={titleRef}
+            label='Title'
+            type='text'
+          />
+          <Input
+            ref={descriptionRef}
+            label='Description'
+            textarea
+          />
+          <Input
+            ref={dueDateRef}
+            label='Due Date'
+            type='date'
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
