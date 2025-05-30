@@ -32,14 +32,16 @@ const NewProject = ({ onAdd }) => {
 
   return (
     <>
-      <Modal ref={modalRef}>
+      <Modal
+        ref={modalRef}
+        buttonCaption={'Okay'}>
         <h2 className='text-xl font-bold text-stone-500 my-4'>
           <strong>Invalid Input</strong>
         </h2>
-        <p className='text-stone-400 mb-4'>
+        <p className='text-stone-700 mb-4'>
           Oops ... looks like you forgot to enter a value.
         </p>
-        <p className='text-stone-400 mb-4'>
+        <p className='text-stone-700 mb-4'>
           Please check the form and make sure all fields are provided with valid
           values.
         </p>

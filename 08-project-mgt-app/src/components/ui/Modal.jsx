@@ -21,10 +21,8 @@ const Modal = ({ children, buttonCaption, ref }) => {
       {children}
       <form
         method='dialog'
-        className='flex justify-end'>
-        <Button className='mt-6 px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950'>
-          {buttonCaption}
-        </Button>
+        className='mt-4 text-right'>
+        <Button>{buttonCaption}</Button>
       </form>
     </dialog>,
     document.getElementById('modal-root')
