@@ -11,12 +11,28 @@ const NewProject = ({ onAdd }) => {
     const enteredDescription = descriptionRef.current.value;
     const enteredDueDate = dueDateRef.current.value;
 
+    if (
+      enteredTitle.trim() === '' ||
+      enteredDescription.trim() === '' ||
+      enteredDueDate.trim() === ''
+    ) {
+      let modalChildren = (
+        <>
+          <h2>
+            <strong>Incomplete Form</strong>
+          </h2>
+          <p>
+            Please check the form and make sure all required fields are filled
+            out correctly.
+          </p>
+        </>
+      );
+    }
     onAdd({
       title: enteredTitle,
       description: enteredDescription,
       dueDate: enteredDueDate,
     });
-    // Todo: validation: if this entry does not exist in the list we add it else don't add
   };
 
   return (
