@@ -35,7 +35,7 @@ const NewProject = ({ onAdd }) => {
         <h2>
           <strong>Incomplete Form</strong>
         </h2>
-        <p>
+        <p className='text-stone-600 mt-4'>
           Please check the form and make sure all required fields are filled out
           correctly.
         </p>
