@@ -64,6 +64,10 @@ const App = () => {
     });
   };
 
+  const handleAddTask = () => {};
+
+  const handleDeleteTask = () => {};
+
   const selectedProject = projectsState.projects.find(
     (project) => project.id === projectsState.selectedProjectId
   );
@@ -72,6 +76,8 @@ const App = () => {
     <SelectedProject
       project={selectedProject}
       onDelete={handleDeleteProject}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
     />
   );
 
