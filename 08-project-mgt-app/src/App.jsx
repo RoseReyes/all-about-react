@@ -42,6 +42,8 @@ const App = () => {
     });
   };
 
+  const handleSelectProject = () => {};
+
   let content;
 
   if (projectsState.selectedProjectId === null) {
@@ -59,6 +61,7 @@ const App = () => {
     <main className='h-screen my-8 flex gap-8'>
       <ProjectsSidebar
         onStartAddProject={handleStartAddProject}
+        onSelectProject={handleSelectProject}
         projectList={projectsState.projects}
       />
       {content}
