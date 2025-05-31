@@ -53,7 +53,7 @@ const App = () => {
   };
 
   const selectedProject = projectsState.projects.find(
-    (project) => project.id === projectsState.projects.id
+    (project) => project.id === projectsState.selectedProjectId
   );
 
   let content = <SelectedProject project={selectedProject} />;
@@ -75,6 +75,7 @@ const App = () => {
         onStartAddProject={handleStartAddProject}
         onSelectProject={handleSelectProject}
         projectList={projectsState.projects}
+        selectedProjectId={projectsState.selectedProjectId}
       />
       {content}
     </main>
