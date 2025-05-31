@@ -42,7 +42,14 @@ const App = () => {
     });
   };
 
-  const handleSelectProject = () => {};
+  const handleSelectProject = (id) => {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: id,
+      };
+    });
+  };
 
   let content;
 
