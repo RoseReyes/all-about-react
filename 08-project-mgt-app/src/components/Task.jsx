@@ -1,14 +1,10 @@
-import Input from './ui/Input';
+import NewTask from './NewTask';
 
 const Task = () => {
   return (
     <section>
-      <h2 className='text-3xl font-bold text-stone-600 mb-2'>Tasks</h2>
-      <div className='flex items-start justify-between'>
-        <Input type='text' />
-        <button>Add Task</button>
-      </div>
-      LIST goes here
+      <h2 className='text-2xl font-bold text-stone-700 mb-4'>Tasks</h2>
+      <NewTask />
     </section>
   );
 };
