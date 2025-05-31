@@ -29,7 +29,7 @@ const ProjectsSidebar = ({
               key={project.id}>
               <button
                 className={classes}
-                onClick={onSelectProject}>
+                onClick={() => onSelectProject(project.id)}>
                 {project.title}
               </button>
             </li>
