@@ -72,7 +72,7 @@ const NewProject = ({ onAdd, onCancel }) => {
           <Input
             ref={descriptionRef}
             label='Description'
-            textarea
+            isTextarea={true}
           />
           <Input
             ref={dueDateRef}
