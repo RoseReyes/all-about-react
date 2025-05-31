@@ -1,16 +1,15 @@
 export const NewTask = () => {
   return (
     <>
-      <div className='flex items-start justify-between'>
-        <input type='text' />
-        <button className='text-stone-600 hover:text-stone-950'>
+      <div className='flex items-center gap-4'>
+        <input
+          type='text'
+          className='w-64 px-2 py-1 rounded-sm bg-stone-200'
+        />
+        <button className='text-stone-700 hover:text-stone-950'>
           Add Task
         </button>
       </div>
-      <p className='text-stone-800 mb-4'>
-        This project does not have any tasks yet.
-      </p>
-      <ul></ul>
     </>
   );
 };
