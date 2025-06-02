@@ -16,7 +16,6 @@ const App = () => {
       const taskId = Math.random();
       const newTask = {
         text: text,
-        projectId: prevState.selectedProjectId,
         id: taskId,
       };
 
