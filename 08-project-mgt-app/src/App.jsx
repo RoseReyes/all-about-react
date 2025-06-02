@@ -64,7 +64,20 @@ const App = () => {
     });
   };
 
-  const handleAddTask = () => {};
+  const handleAddTask = (text) => {
+    setProjectsState((prevState) => {
+      const taskId = Math.random();
+      const newTask = {
+        text: text,
+        id: taskId,
+      };
+
+      return {
+        ...prevState,
+        tasks: [newTask, ...prevState.tasks],
+      };
+    });
+  };
 
   const handleDeleteTask = () => {};
 
