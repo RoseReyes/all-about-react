@@ -4,6 +4,7 @@ import { createContext } from 'react';
 export const CartContext = createContext({
   items: [],
   addItemToCart: () => {},
+  updateItemQuantity: () => {},
 });
 
 // Provide this context - wrap components inside
