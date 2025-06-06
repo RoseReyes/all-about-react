@@ -7,12 +7,18 @@ export const CartContext = createContext({
   addItemToCart: () => {},
   updateItemQuantity: () => {},
 });
- const shoppingCartReducer() {
-  
- }
+
+const shoppingCartReducer = (state, action) => {
+  return state;
+};
 
 export default function CartContextProvider({ children }) {
-  const [shoppingCartState, dispatch] = useReducer();
+  const [shoppingCartState, shoppingCartDispatch] = useReducer(
+    shoppingCartReducer,
+    {
+      items: [],
+    }
+  );
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
   });
@@ -74,7 +80,7 @@ export default function CartContextProvider({ children }) {
   }
 
   const ctxValue = {
-    items: shoppingCart.items,
+    items: shoppingCartState.items,
     addItemToCart: handleAddItemToCart,
     updateItemQuantity: handleUpdateCartItemQuantity,
   };
