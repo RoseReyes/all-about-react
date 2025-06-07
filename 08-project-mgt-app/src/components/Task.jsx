@@ -2,8 +2,8 @@ import NewTask from './NewTask';
 import { TaskContext } from '../store/task-context';
 import { useContext } from 'react';
 
-const Task = ({ onAdd, onDelete }) => {
-  const { tasks } = useContext(TaskContext);
+const Task = () => {
+  const { tasks, deleteTask } = useContext(TaskContext);
 
   return (
     <section>
@@ -23,7 +23,7 @@ const Task = ({ onAdd, onDelete }) => {
               <span>{task.text}</span>
               <button
                 className='text-stone-700 hover:text-red-500'
-                onClick={() => onDelete(task.id)}>
+                onClick={() => deleteTask(task.id)}>
                 Clear
               </button>
             </li>

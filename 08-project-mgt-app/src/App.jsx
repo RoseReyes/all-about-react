@@ -98,6 +98,7 @@ const App = () => {
   const ctxValue = {
     tasks: projectsState.tasks,
     addTask: handleAddTask,
+    deleteTask: handleDeleteTask,
   };
 
   let content = (
