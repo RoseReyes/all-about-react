@@ -2,6 +2,8 @@ import NewProject from './components/NewProject.jsx';
 import NoProjectSelected from './components/NoProjectSelected.jsx';
 import ProjectsSidebar from './components/ProjectsSidebar.jsx';
 import SelectedProject from './components/SelectedProject.jsx';
+import Task from './components/Task.jsx';
+import { TaskContext } from './store/task-context.jsx';
 import { useState } from 'react';
 
 const App = () => {
@@ -93,14 +95,19 @@ const App = () => {
     (project) => project.id === projectsState.selectedProjectId
   );
 
+  const ctxValue = {
+    tasks: projectsState.tasks,
+    addTask: handleAddTask,
+  };
+
   let content = (
-    <SelectedProject
-      project={selectedProject}
-      onDelete={handleDeleteProject}
-      onAddTask={handleAddTask}
-      onDeleteTask={handleDeleteTask}
-      tasks={projectsState.tasks}
-    />
+    <TaskContext.Provider value={ctxValue}>
+      <SelectedProject
+        project={selectedProject}
+        onDelete={handleDeleteProject}
+        onDeleteTask={handleDeleteTask}
+      />
+    </TaskContext.Provider>
   );
 
   if (projectsState.selectedProjectId === null) {

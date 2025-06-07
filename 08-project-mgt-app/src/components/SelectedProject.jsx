@@ -1,17 +1,15 @@
 import Task from './Task';
+import { TaskContext } from '../store/task-context';
+import { useContext } from 'react';
 
-const SelectedProject = ({
-  tasks,
-  project,
-  onDelete,
-  onAddTask,
-  onDeleteTask,
-}) => {
+const SelectedProject = ({ project, onDelete, onDeleteTask }) => {
   const formattedDate = new Date(project.dueDate).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
   });
+
+  const { addTask } = useContext(TaskContext);
 
   return (
     <div className='w-[35rem] mt-16'>
@@ -31,11 +29,7 @@ const SelectedProject = ({
           {project.description}
         </p>
       </header>
-      <Task
-        onAdd={onAddTask}
-        onDelete={onDeleteTask}
-        tasks={tasks}
-      />
+      <Task onDelete={onDeleteTask} />
     </div>
   );
 };

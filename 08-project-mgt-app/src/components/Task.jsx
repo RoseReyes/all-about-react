@@ -1,10 +1,14 @@
 import NewTask from './NewTask';
+import { TaskContext } from '../store/task-context';
+import { useContext } from 'react';
 
-const Task = ({ tasks, onAdd, onDelete }) => {
+const Task = ({ onAdd, onDelete }) => {
+  const { tasks } = useContext(TaskContext);
+
   return (
     <section>
       <h2 className='text-2xl font-bold text-stone-700 mb-4'>Tasks</h2>
-      <NewTask onAdd={onAdd} />
+      <NewTask />
       {tasks.length === 0 && (
         <p className='text-stone-800 my-4'>
           This project does not have any tasks yet.
