@@ -106,7 +106,6 @@ const App = () => {
       <SelectedProject
         project={selectedProject}
         onDelete={handleDeleteProject}
-        onDeleteTask={handleDeleteTask}
       />
     </TaskContext.Provider>
   );
