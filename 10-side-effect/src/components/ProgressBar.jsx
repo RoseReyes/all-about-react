@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const ProgressBar = ({ timer }) => {
-  const [remainingTime, setRemainingTime] = useState(TIMER);
+  const [remainingTime, setRemainingTime] = useState(timer);
 
   useEffect(() => {
     const interval = setInterval(() => {
