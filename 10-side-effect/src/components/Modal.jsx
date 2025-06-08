@@ -19,7 +19,6 @@ const Modal = ({ open, children, onClose }) => {
       ref={dialog}
       onClose={onClose}>
       {open ? children : null}
-      {children}
     </dialog>,
     document.getElementById('modal')
   );

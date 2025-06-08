@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import { AVAILABLE_PLACES } from './data.js';
 import DeleteConfirmation from './components/DeleteConfirmation.jsx';
@@ -45,19 +45,18 @@ function App() {
     });
   }
 
-  function handleRemovePlace() {
+  const handleRemovePlace = useCallback(function handleRemovePlace() {
     setPickedPlaces((prevPickedPlaces) =>
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
     );
     setModalIsOpen(false);
-  }
+  }, []);
 
   return (
     <>
       <Modal
         ref={modal}
-        open={modalIsOpen}
-        onClose={handleStopRemovePlace}>
+        open={modalIsOpen}>
         <DeleteConfirmation
           onCancel={handleStopRemovePlace}
           onConfirm={handleRemovePlace}
