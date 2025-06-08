@@ -1,11 +1,11 @@
-import image from '../assets/quiz-logo.png';
+import logoImg from '../assets/quiz-logo.png';
 
 const Header = () => {
   return (
     <header>
       <img
-        src={image}
-        alt='quiz logo'
+        src={logoImg}
+        alt='Quiz logo'
       />
       <h1>React Quiz</h1>
     </header>
