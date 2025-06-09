@@ -1,6 +1,10 @@
 import QUESTIONS from '../questions.js';
+import { QuestionTimer } from './QuestionTimer.jsx';
 import quizCompleteImg from '../assets/quiz-complete.png';
+import { useEffect } from 'react';
 import { useState } from 'react';
+
+const TIMER = 15000;
 
 const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([]);
@@ -13,6 +17,16 @@ const Quiz = () => {
       return [...prevUserAnswers, selectedAnswer];
     });
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleSelectAnswer();
+    }, 15000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [handleSelectAnswer]);
 
   if (quizIsComplete) {
     return (
@@ -45,6 +59,7 @@ const Quiz = () => {
           ))}
         </ul>
       </div>
+      <QuestionTimer timer={TIMER} />
     </div>
   );
 };
