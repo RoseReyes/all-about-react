@@ -3,14 +3,13 @@ import { useState } from 'react';
 
 const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([]);
-
   const activeQuestionIndex = userAnswers.length;
 
-  const randomAnswer = QUESTIONS[activeQuestionIndex].answers.sort(
-    () => Math.random() - 0.5
-  );
-
-  const handleSelectAnswer = () => {};
+  const handleSelectAnswer = (selectedAnswer) => {
+    setUserAnswers((prevUserAnswers) => {
+      [...prevUserAnswers, selectedAnswer];
+    });
+  };
 
   return (
     <div id='question'>
@@ -20,7 +19,7 @@ const Quiz = () => {
           <li
             key={answer}
             className='answer'>
-            <button onClick={handleSelectAnswer}>{answer}</button>
+            <button onClick={() => handleSelectAnswer(answer)}>{answer}</button>
           </li>
         ))}
       </ul>
