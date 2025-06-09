@@ -4,8 +4,11 @@ import { useState } from 'react';
 const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const activeQuestionIndex = userAnswers.length;
+  const shuffledAnswer = QUESTIONS[activeQuestionIndex].answers.sort(() => {
+    return Math.random() - 0.5;
+  });
 
-  console.log(activeQuestionIndex, 'index');
+  console.log(shuffledAnswer, 'answers');
 
   const handleSelectAnswer = (selectedAnswer) => {
     setUserAnswers((prevUserAnswers) => {
@@ -18,7 +21,7 @@ const Quiz = () => {
       <div id='question'>
         <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
         <ul id='answers'>
-          {QUESTIONS[activeQuestionIndex].answers.map((answer) => (
+          {shuffledAnswer.map((answer) => (
             <li
               key={answer}
               className='answer'>
