@@ -1,4 +1,5 @@
 import QUESTIONS from '../questions.js';
+import quizCompleteImg from '../assets/quiz-complete.png';
 import { useState } from 'react';
 
 const Quiz = () => {
@@ -15,6 +16,18 @@ const Quiz = () => {
       return [...prevUserAnswers, selectedAnswer];
     });
   };
+
+  if (quizIsComplete) {
+    return (
+      <div id='summary'>
+        <img
+          src={quizCompleteImg}
+          alt='Quiz Complete'
+        />
+        <h2>Quiz Completed</h2>
+      </div>
+    );
+  }
 
   return (
     <div id='quiz'>
