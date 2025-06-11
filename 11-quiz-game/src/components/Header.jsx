@@ -1,6 +1,6 @@
 import logoImg from '../assets/quiz-logo.png';
 
-const Header = () => {
+export const Header = () => {
   return (
     <header>
       <img
@@ -11,5 +11,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

@@ -3,10 +3,11 @@ import { QuestionTimer } from './QuestionTimer.jsx';
 import quizCompleteImg from '../assets/quiz-complete.png';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useCallback } from 'react';
 
-const TIMER = 15000;
+const TIMER = 10000;
 
-const Quiz = () => {
+export const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const activeQuestionIndex = userAnswers.length;
 
@@ -18,15 +19,7 @@ const Quiz = () => {
     });
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      handleSelectAnswer();
-    }, 15000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [handleSelectAnswer]);
+  const handleSkipAnswer = useCallback()
 
   if (quizIsComplete) {
     return (
@@ -46,22 +39,23 @@ const Quiz = () => {
   return (
     <div id='quiz'>
       <div id='question'>
+        <QuestionTimer
+          timeOut={TIMER}
+          onTimeout={() => handleSelectAnswer(null)}
+        />
         <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
         <ul id='answers'>
           {shuffledAnswers.map((answer) => (
             <li
               key={answer}
               className='answer'>
-              <button onClick={() => handleSelectAnswer(answer)}>
+              <button onClick={}>
                 {answer}
               </button>
             </li>
           ))}
         </ul>
       </div>
-      <QuestionTimer timer={TIMER} />
     </div>
   );
 };
-
-export default Quiz;
