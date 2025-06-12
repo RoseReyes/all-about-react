@@ -11,13 +11,13 @@ export const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const activeQuestionIndex = userAnswers.length;
 
-  const handleSelectAnswer = (selectedAnswer) => {
+  const handleSelectAnswer = useCallback((selectedAnswer) => {
     setUserAnswers((prevUserAnswers) => {
       return [...prevUserAnswers, selectedAnswer];
     });
-  };
+  }, []);
 
-  const handleSkipAnswer = useCallback()
+  const handleSkipAnswer = useCallback(() => handleSelectAnswer(null), [handleSelectAnswer])
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   if (quizIsComplete) {
@@ -40,7 +40,7 @@ export const Quiz = () => {
       <div id='question'>
         <QuestionTimer
           timeOut={TIMER}
-          onTimeout={() => handleSelectAnswer(null)}
+          onTimeout={handleSkipAnswer}
         />
         <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
         <ul id='answers'>
