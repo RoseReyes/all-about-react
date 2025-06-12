@@ -1,9 +1,9 @@
 import QUESTIONS from '../questions.js';
 import { QuestionTimer } from './QuestionTimer.jsx';
 import quizCompleteImg from '../assets/quiz-complete.png';
+import { useCallback } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useCallback } from 'react';
 
 const TIMER = 10000;
 
@@ -17,11 +17,14 @@ export const Quiz = () => {
     });
   }, []);
 
-  const handleSkipAnswer = useCallback(() => handleSelectAnswer(null), [handleSelectAnswer])
+  const handleSkipAnswer = useCallback(
+    () => handleSelectAnswer(null),
+    [handleSelectAnswer]
+  );
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   if (quizIsComplete) {
-    return ( 
+    return (
       <div id='summary'>
         <img
           src={quizCompleteImg}
@@ -48,9 +51,7 @@ export const Quiz = () => {
             <li
               key={answer}
               className='answer'>
-              <button onClick={}>
-                {answer}
-              </button>
+              <button onClick={handleSelectAnswer}>{answer}</button>
             </li>
           ))}
         </ul>
