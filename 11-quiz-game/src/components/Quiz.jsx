@@ -11,8 +11,6 @@ export const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const activeQuestionIndex = userAnswers.length;
 
-  const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
-
   const handleSelectAnswer = (selectedAnswer) => {
     setUserAnswers((prevUserAnswers) => {
       return [...prevUserAnswers, selectedAnswer];
@@ -20,13 +18,14 @@ export const Quiz = () => {
   };
 
   const handleSkipAnswer = useCallback()
+  const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   if (quizIsComplete) {
-    return (
+    return ( 
       <div id='summary'>
         <img
           src={quizCompleteImg}
-          alt='Quiz Completed!'
+          alt='Trophy Icon'
         />
         <h2>Quiz Completed</h2>
       </div>
