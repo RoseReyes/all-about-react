@@ -42,6 +42,7 @@ export const Quiz = () => {
     <div id='quiz'>
       <div id='question'>
         <QuestionTimer
+          key={activeQuestionIndex}
           timeOut={TIMER}
           onTimeout={handleSkipAnswer}
         />
