@@ -3,7 +3,6 @@ import { useCallback, useState } from 'react';
 import { Answers } from './Answers.jsx';
 import QUESTIONS from '../questions.js';
 import { QuestionTimer } from './QuestionTimer.jsx';
-import questions from '../questions.js';
 import quizCompleteImg from '../assets/quiz-complete.png';
 
 const TIMER = 10000;
