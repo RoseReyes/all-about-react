@@ -1,19 +1,19 @@
+import { useCallback, useRef, useState } from 'react';
+
 import QUESTIONS from '../questions.js';
 import { QuestionTimer } from './QuestionTimer.jsx';
 import questions from '../questions.js';
 import quizCompleteImg from '../assets/quiz-complete.png';
-import { useCallback } from 'react';
-import { useState } from 'react';
 
 const TIMER = 10000;
 
 export const Quiz = () => {
+  const shuffledAnswers = useRef();
   const [answerState, setAnswerState] = useState('unanswered');
   const [userAnswers, setUserAnswers] = useState([]);
 
   const activeQuestionIndex =
     answerState === '' ? userAnswers.length : userAnswers.length - 1;
-  const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   const handleSelectAnswer = useCallback(
     (selectedAnswer) => {
@@ -42,6 +42,8 @@ export const Quiz = () => {
     [handleSelectAnswer]
   );
 
+  const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
+
   if (quizIsComplete) {
     return (
       <div id='summary'>
@@ -54,8 +56,10 @@ export const Quiz = () => {
     );
   }
 
-  const shuffledAnswers = [...QUESTIONS[activeQuestionIndex].answers];
-  shuffledAnswers.sort(() => Math.random - 0.5);
+  if (!shuffledAnswers.current) {
+    shuffledAnswers.current = [...QUESTIONS[activeQuestionIndex].answers];
+    shuffledAnswers.current.sort(() => Math.random - 0.5);
+  }
 
   return (
     <div id='quiz'>
@@ -67,7 +71,7 @@ export const Quiz = () => {
         />
         <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
         <ul id='answers'>
-          {shuffledAnswers.map((answer) => {
+          {shuffledAnswers.current.map((answer) => {
             const isSelected = userAnswers[userAnswers.length - 1] === answer;
             let cssClasses = '';
 
