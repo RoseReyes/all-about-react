@@ -1,4 +1,4 @@
-import Counter from './components/Counter/Counter.jsx';
+import { Counter } from './components/Counter/Counter.jsx';
 import { Header } from './components/Header.jsx';
 import { log } from './log.js';
 import { useState } from 'react';
