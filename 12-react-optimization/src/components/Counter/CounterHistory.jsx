@@ -1,14 +1,14 @@
 import { log } from '../../log.js';
 import { useState } from 'react';
 
-function HistoryItem({ count }) {
+const HistoryItem = ({ count }) => {
   log('<HistoryItem /> rendered', 3);
 
   const [selected, setSelected] = useState(false);
 
-  function handleClick() {
+  const handleClick = () => {
     setSelected((prevSelected) => !prevSelected);
-  }
+  };
 
   return (
     <li
@@ -17,7 +17,7 @@ function HistoryItem({ count }) {
       {count}
     </li>
   );
-}
+};
 
 export const CounterHistory = ({ history }) => {
   log('<CounterHistory /> rendered', 2);
