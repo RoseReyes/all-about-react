@@ -1,17 +1,12 @@
+import CounterOutput from './CounterOutput.jsx';
+import { IconButton } from '../UI/IconButton.jsx';
+import { MinusIcon } from '../UI/Icons/MinusIcon.jsx';
+import { PlusIcon } from '../UI/Icons/PlusIcon.jsx';
+import { log } from '../../log.js';
 import { useState } from 'react';
 
-import IconButton from '../UI/IconButton.jsx';
-import MinusIcon from '../UI/Icons/MinusIcon.jsx';
-import PlusIcon from '../UI/Icons/PlusIcon.jsx';
-import CounterOutput from './CounterOutput.jsx';
-import { log } from '../../log.js';
-
 function isPrime(number) {
-  log(
-    'Calculating if is prime number',
-    2,
-    'other'
-  );
+  log('Calculating if is prime number', 2, 'other');
   if (number <= 1) {
     return false;
   }
@@ -42,17 +37,21 @@ export default function Counter({ initialCount }) {
   }
 
   return (
-    <section className="counter">
-      <p className="counter-info">
+    <section className='counter'>
+      <p className='counter-info'>
         The initial counter value was <strong>{initialCount}</strong>. It{' '}
         <strong>is {initialCountIsPrime ? 'a' : 'not a'}</strong> prime number.
       </p>
       <p>
-        <IconButton icon={MinusIcon} onClick={handleDecrement}>
+        <IconButton
+          icon={MinusIcon}
+          onClick={handleDecrement}>
           Decrement
         </IconButton>
         <CounterOutput value={counter} />
-        <IconButton icon={PlusIcon} onClick={handleIncrement}>
+        <IconButton
+          icon={PlusIcon}
+          onClick={handleIncrement}>
           Increment
         </IconButton>
       </p>
