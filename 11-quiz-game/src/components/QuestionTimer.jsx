@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-export const QuestionTimer = ({ timeOut, onTimeout }) => {
+export const QuestionTimer = ({ timeOut, onTimeout, mode }) => {
   const [remainingTime, setRemainingTime] = useState(timeOut);
 
   useEffect(() => {
@@ -29,6 +29,7 @@ export const QuestionTimer = ({ timeOut, onTimeout }) => {
       id='question-time'
       max={timeOut}
       value={remainingTime}
+      className={mode}
     />
   );
 };
