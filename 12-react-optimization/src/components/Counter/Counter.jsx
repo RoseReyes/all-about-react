@@ -1,9 +1,10 @@
+import { memo, useState } from 'react';
+
 import { CounterOutput } from './CounterOutput.jsx';
 import { IconButton } from '../UI/IconButton.jsx';
 import { MinusIcon } from '../UI/Icons/MinusIcon.jsx';
 import { PlusIcon } from '../UI/Icons/PlusIcon.jsx';
 import { log } from '../../log.js';
-import { useState } from 'react';
 
 const isPrime = (number) => {
   log('Calculating if is prime number', 2, 'other');
@@ -22,7 +23,7 @@ const isPrime = (number) => {
   return true;
 };
 
-export const Counter = ({ initialCount }) => {
+export const Counter = memo(({ initialCount }) => {
   log('<Counter /> rendered', 1);
   const initialCountIsPrime = isPrime(initialCount);
 
@@ -57,4 +58,4 @@ export const Counter = ({ initialCount }) => {
       </p>
     </section>
   );
-};
+});
