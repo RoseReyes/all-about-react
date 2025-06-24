@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 
 import { CounterOutput } from './CounterOutput.jsx';
 import { IconButton } from '../UI/IconButton.jsx';
@@ -25,7 +25,10 @@ const isPrime = (number) => {
 
 export const Counter = memo(({ initialCount }) => {
   log('<Counter /> rendered', 1);
-  const initialCountIsPrime = isPrime(initialCount);
+  const initialCountIsPrime = useMemo(
+    () => isPrime(initialCount),
+    [initialCount]
+  );
 
   const [counter, setCounter] = useState(initialCount);
 
