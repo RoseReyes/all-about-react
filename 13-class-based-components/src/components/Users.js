@@ -1,5 +1,4 @@
-import { Component, useState } from 'react';
-
+import { Component } from 'react';
 import User from './User';
 import classes from './Users.module.css';
 
@@ -11,6 +10,7 @@ const DUMMY_USERS = [
 
 class Users extends Component {
   constructor() {
+    super();
     this.state = {
       showUsers: true,
     };
