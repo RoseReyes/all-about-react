@@ -6,12 +6,21 @@ import Modal from './components/Modal.jsx';
 import Places from './components/Places.jsx';
 import logoImg from './assets/logo.png';
 
-const App = () => {
+export const App = () => {
   const selectedPlace = useRef();
 
   const [userPlaces, setUserPlaces] = useState([]);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleStartRemovePlace = (place) => {
+    setModalIsOpen(true);
+    selectedPlace.current = place;
+  };
+
+  const handleStopRemovePlace = () => {
+    setModalIsOpen(false);
+  };
 
   const handleSelectPlace = (selectedPlace) => {
     setUserPlaces((prevPickedPlaces) => {
@@ -68,5 +77,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;
