@@ -9,7 +9,7 @@ export default function AvailablePlaces({ onSelectPlace }) {
     async function fetchPlaces() {
       const response = await fetch('http://localhost:3000/places');
       const resData = await response.json();
-      setAvailablePlaces(resData);
+      setAvailablePlaces(resData.places);
     }
 
     fetchPlaces();
