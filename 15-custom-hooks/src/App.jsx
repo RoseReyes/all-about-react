@@ -7,16 +7,13 @@ import Error from './components/Error.jsx';
 import Modal from './components/Modal.jsx';
 import Places from './components/Places.jsx';
 import logoImg from './assets/logo.png';
+import { useFetch } from './hooks/useFetch.js';
 
 function App() {
   const selectedPlace = useRef();
 
   const [userPlaces, setUserPlaces] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState();
-
   const [errorUpdatingPlaces, setErrorUpdatingPlaces] = useState();
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useFetch();
