@@ -1,12 +1,12 @@
-import { useRef, useState, useCallback, useEffect } from 'react';
-
-import Places from './components/Places.jsx';
-import Modal from './components/Modal.jsx';
-import DeleteConfirmation from './components/DeleteConfirmation.jsx';
-import logoImg from './assets/logo.png';
-import AvailablePlaces from './components/AvailablePlaces.jsx';
 import { fetchUserPlaces, updateUserPlaces } from './http.js';
+import { useCallback, useRef, useState } from 'react';
+
+import AvailablePlaces from './components/AvailablePlaces.jsx';
+import DeleteConfirmation from './components/DeleteConfirmation.jsx';
 import Error from './components/Error.jsx';
+import Modal from './components/Modal.jsx';
+import Places from './components/Places.jsx';
+import logoImg from './assets/logo.png';
 
 function App() {
   const selectedPlace = useRef();
@@ -19,21 +19,7 @@ function App() {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  useEffect(() => {
-    async function fetchPlaces() {
-      setIsFetching(true);
-      try {
-        const places = await fetchUserPlaces();
-        setUserPlaces(places);
-      } catch (error) {
-        setError({ message: error.message || 'Failed to fetch user places.' });
-      }
-
-      setIsFetching(false);
-    }
-
-    fetchPlaces();
-  }, []);
+  useFetch();
 
   function handleStartRemovePlace(place) {
     setModalIsOpen(true);
@@ -97,17 +83,21 @@ function App() {
 
   return (
     <>
-      <Modal open={errorUpdatingPlaces} onClose={handleError}>
+      <Modal
+        open={errorUpdatingPlaces}
+        onClose={handleError}>
         {errorUpdatingPlaces && (
           <Error
-            title="An error occurred!"
+            title='An error occurred!'
             message={errorUpdatingPlaces.message}
             onConfirm={handleError}
           />
         )}
       </Modal>
 
-      <Modal open={modalIsOpen} onClose={handleStopRemovePlace}>
+      <Modal
+        open={modalIsOpen}
+        onClose={handleStopRemovePlace}>
         <DeleteConfirmation
           onCancel={handleStopRemovePlace}
           onConfirm={handleRemovePlace}
@@ -115,7 +105,10 @@ function App() {
       </Modal>
 
       <header>
-        <img src={logoImg} alt="Stylized globe" />
+        <img
+          src={logoImg}
+          alt='Stylized globe'
+        />
         <h1>PlacePicker</h1>
         <p>
           Create your personal collection of places you would like to visit or
@@ -123,13 +116,18 @@ function App() {
         </p>
       </header>
       <main>
-        {error && <Error title="An error occurred!" message={error.message} />}
+        {error && (
+          <Error
+            title='An error occurred!'
+            message={error.message}
+          />
+        )}
         {!error && (
           <Places
             title="I'd like to visit ..."
-            fallbackText="Select the places you would like to visit below."
+            fallbackText='Select the places you would like to visit below.'
             isLoading={isFetching}
-            loadingText="Fetching your places..."
+            loadingText='Fetching your places...'
             places={userPlaces}
             onSelectPlace={handleStartRemovePlace}
           />
