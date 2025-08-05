@@ -1,5 +1,5 @@
 import { fetchUserPlaces, updateUserPlaces } from './http.js';
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import AvailablePlaces from './components/AvailablePlaces.jsx';
 import DeleteConfirmation from './components/DeleteConfirmation.jsx';
