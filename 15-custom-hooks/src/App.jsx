@@ -100,7 +100,7 @@ function App() {
         onClose={handleStopRemovePlace}>
         <DeleteConfirmation
           onCancel={handleStopRemovePlace}
-          //onConfirm={handleRemovePlace}
+          onConfirm={handleRemovePlace}
         />
       </Modal>
 
@@ -133,9 +133,7 @@ function App() {
           />
         )}
 
-        <AvailablePlaces
-        //onSelectPlace={handleSelectPlace}
-        />
+        <AvailablePlaces onSelectPlace={handleSelectPlace} />
       </main>
     </>
   );
