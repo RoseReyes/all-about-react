@@ -1,5 +1,5 @@
 import { fetchUserPlaces, updateUserPlaces } from './http.js';
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import AvailablePlaces from './components/AvailablePlaces.jsx';
 import DeleteConfirmation from './components/DeleteConfirmation.jsx';
@@ -74,7 +74,7 @@ function App() {
 
       setModalIsOpen(false);
     },
-    [userPlaces]
+    [userPlaces, setUserPlaces]
   );
 
   function handleError() {
