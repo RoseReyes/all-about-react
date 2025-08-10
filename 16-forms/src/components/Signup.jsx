@@ -2,7 +2,10 @@ export default function Signup() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
+    const acquisitionData = formData.getAll('acquisition');
     const data = Object.fromEntries(formData.entries());
+    data.acquisition = acquisitionData;
+    console.log(data);
   };
 
   return (
