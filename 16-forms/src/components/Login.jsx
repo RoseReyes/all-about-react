@@ -8,12 +8,13 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(enteredValues);
   };
 
-  const handleInputChange = (event, identifier) => {
+  const handleInputChange = (identifier, value) => {
     setEnteredValues((preValues) => ({
       ...preValues,
-      [identifier]: event.target.value,
+      [identifier]: value,
     }));
   };
 
@@ -28,8 +29,8 @@ export default function Login() {
             id='email'
             type='email'
             name='email'
-            onChange={(event) => handleInputChange('email')}
-            value={enteredEmail}
+            onChange={(event) => handleInputChange('email', event.target.value)}
+            value={enteredValues.email}
           />
         </div>
 
@@ -39,7 +40,10 @@ export default function Login() {
             id='password'
             type='password'
             name='password'
-            onChange={(event) => handleInputChange('password')}
+            onChange={(event) =>
+              handleInputChange('password', event.target.value)
+            }
+            value={enteredValues.password}
           />
         </div>
       </div>
