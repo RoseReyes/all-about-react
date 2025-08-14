@@ -7,9 +7,9 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const enteredEmail = email.current.value;
     const enteredPassword = password.current.value;
-    console.log(enteredEmail, enteredPassword);
   };
 
   return (
