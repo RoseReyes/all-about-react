@@ -36,7 +36,7 @@ export default function Login() {
             value={enteredValues.email}
           />
           <div className='control-error'>
-            {emailIsInvalid && <p>Please enter a valid email address</p>}
+            {emailIsInvalid && <p>Please enter a valid email address.</p>}
           </div>
         </div>
 
