@@ -20,6 +20,7 @@ export default function Signup() {
           id='email'
           type='email'
           name='email'
+          required
         />
       </div>
 
@@ -30,6 +31,8 @@ export default function Signup() {
             id='password'
             type='password'
             name='password'
+            required
+            minLength={6}
           />
         </div>
 
@@ -39,6 +42,8 @@ export default function Signup() {
             id='confirm-password'
             type='password'
             name='confirm-password'
+            required
+            minLength={6}
           />
         </div>
       </div>
@@ -52,6 +57,7 @@ export default function Signup() {
             type='text'
             id='first-name'
             name='first-name'
+            required
           />
         </div>
 
@@ -61,6 +67,7 @@ export default function Signup() {
             type='text'
             id='last-name'
             name='last-name'
+            required
           />
         </div>
       </div>
