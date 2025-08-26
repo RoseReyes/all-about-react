@@ -18,7 +18,8 @@ export default function Login() {
     didEdit.email &&
     !isEmail(enteredValues.email) &&
     !isNotEmpty(enteredValues.email);
-  const passwordIsInvalid = hasMinLength(enteredValues.password, 6);
+  const passwordIsInvalid =
+    didEdit.password && !hasMinLength(enteredValues.password, 6);
 
   const handleSubmit = (event) => {
     event.preventDefault();
