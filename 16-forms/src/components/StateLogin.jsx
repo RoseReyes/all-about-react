@@ -49,6 +49,7 @@ export default function Login() {
           id='password'
           type='password'
           name='password'
+          onBlur={() => handleInputBlur('password')}
           onChange={(event) =>
             handleInputChange('password', event.target.value)
           }
