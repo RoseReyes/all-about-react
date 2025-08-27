@@ -49,7 +49,19 @@ export default function Signup() {
     }
 
     if (errors.length > 0) {
-      return { errors };
+      return {
+        errors,
+        enteredValues: {
+          email,
+          password,
+          confirmPassword,
+          firstName,
+          lastName,
+          role,
+          terms,
+          acquisitionChannel,
+        },
+      };
     }
 
     return {
@@ -72,6 +84,7 @@ export default function Signup() {
           id='email'
           type='email'
           name='email'
+          defaultValue={formState.enteredValues?.email}
         />
       </div>
 
@@ -82,6 +95,7 @@ export default function Signup() {
             id='password'
             type='password'
             name='password'
+            defaultValue={formState.enteredValues?.password}
           />
         </div>
 
@@ -91,6 +105,7 @@ export default function Signup() {
             id='confirm-password'
             type='password'
             name='confirm-password'
+            defaultValue={formState.enteredValues?.confirmPassword}
           />
         </div>
       </div>
@@ -104,6 +119,7 @@ export default function Signup() {
             type='text'
             id='first-name'
             name='first-name'
+            defaultValue={formState.enteredValues?.firstName}
           />
         </div>
 
@@ -113,6 +129,7 @@ export default function Signup() {
             type='text'
             id='last-name'
             name='last-name'
+            defaultValue={formState.enteredValues?.lastName}
           />
         </div>
       </div>
