@@ -138,7 +138,8 @@ export default function Signup() {
         <label htmlFor='phone'>What best describes your role?</label>
         <select
           id='role'
-          name='role'>
+          name='role'
+          defaultValue={formState.enteredValues?.role}>
           <option value='student'>Student</option>
           <option value='teacher'>Teacher</option>
           <option value='employee'>Employee</option>
@@ -155,6 +156,9 @@ export default function Signup() {
             id='google'
             name='acquisition'
             value='google'
+            defaultChecked={formState.enteredValues?.acquisitionChannel.includes(
+              'google'
+            )}
           />
           <label htmlFor='google'>Google</label>
         </div>
@@ -165,6 +169,9 @@ export default function Signup() {
             id='friend'
             name='acquisition'
             value='friend'
+            defaultChecked={formState.enteredValues?.acquisitionChannel.includes(
+              'friend'
+            )}
           />
           <label htmlFor='friend'>Referred by friend</label>
         </div>
@@ -175,6 +182,9 @@ export default function Signup() {
             id='other'
             name='acquisition'
             value='other'
+            defaultChecked={formState.enteredValues?.acquisitionChannel.includes(
+              'other'
+            )}
           />
           <label htmlFor='other'>Other</label>
         </div>
@@ -186,6 +196,7 @@ export default function Signup() {
             type='checkbox'
             id='terms-and-conditions'
             name='terms'
+            defaultChecked={formState.enteredValues?.terms}
           />
           I agree to the terms and conditions
         </label>
