@@ -73,7 +73,7 @@ export function NewOpinion() {
             defaultValue={formState.enteredValues?.body}></textarea>
         </p>
         {formState.errors && (
-          <ul className='error'>
+          <ul className='errors'>
             {formState.errors.map((error) => (
               <li key={error}>{error}</li>
             ))}
