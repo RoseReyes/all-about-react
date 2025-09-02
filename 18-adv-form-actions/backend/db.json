@@ -2,14 +2,14 @@
   "opinions": [
     {
       "id": 1756835639420,
-      "votes": 0,
+      "votes": 3,
       "userName": "Rose",
       "title": "Angular  sucks",
       "body": "Angular is getting outdated now"
     },
     {
       "id": 1756834726964,
-      "votes": 0,
+      "votes": 2,
       "userName": "Rose",
       "title": "React is awesome",
       "body": "React is a valuable teach stack to learn in 2025"
