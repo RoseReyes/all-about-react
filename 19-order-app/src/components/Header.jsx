@@ -1,3 +1,4 @@
+import { Button } from './ui/Button';
 import foodAppImg from '../assets/logo.jpg';
 
 export const Header = () => {
@@ -10,7 +11,11 @@ export const Header = () => {
         <h1>REACTFOOD</h1>
       </div>
       <nav>
-        <button className='cart'>Cart (0)</button>
+        <Button
+          className='cart'
+          textOnly>
+          Cart (0)
+        </Button>
       </nav>
     </header>
   );
