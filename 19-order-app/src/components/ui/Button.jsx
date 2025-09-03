@@ -3,8 +3,8 @@ export const Button = ({ children, textOnly, className, ...props }) => {
   cssClasses += ' ' + className;
   return (
     <button
-      {...props}
-      className={cssClasses}>
+      className={cssClasses}
+      {...props}>
       {children}
     </button>
   );
