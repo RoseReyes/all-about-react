@@ -31,15 +31,12 @@ export const Meals = () => {
 
   return (
     <ul id='meals'>
-      {loadedMeals &&
-        loadedMeals.map((meal) => {
-          return (
-            <MealItem
-              key={meal.id}
-              meal={meal}
-            />
-          );
-        })}
+      {loadedMeals.map((meal) => (
+        <MealItem
+          key={meal.id}
+          meal={meal}
+        />
+      ))}
     </ul>
   );
 };
