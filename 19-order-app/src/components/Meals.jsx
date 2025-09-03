@@ -14,7 +14,6 @@ export const Meals = () => {
       try {
         const response = await fetch('http://localhost:3000/meals');
         const meals = await response.json();
-        console.log(meals);
 
         setLoadedMeals(meals);
         setIsFetching(false);
