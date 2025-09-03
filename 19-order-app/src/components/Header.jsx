@@ -1,6 +1,6 @@
 import foodAppImg from '../assets/logo.jpg';
 
-const Header = () => {
+export const Header = () => {
   return (
     <header id='main-header'>
       <div id='title'>
@@ -15,5 +15,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;
