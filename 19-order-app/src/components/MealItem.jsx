@@ -17,7 +17,7 @@ export const MealItem = ({ meal }) => {
           <p className='meal-item-description'>{meal.description}</p>
         </div>
         <p className='meal-item-actions'>
-          <Button>Add to Cart</Button>
+          <Button onClick={() => addItemToCart(meal.id)}>Add to Cart</Button>
         </p>
       </article>
     </li>
