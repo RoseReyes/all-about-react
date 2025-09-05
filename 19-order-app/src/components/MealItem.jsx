@@ -1,7 +1,11 @@
 import { Button } from './ui/Button.jsx';
+import { CartContext } from '../store/food-cart-context.jsx';
 import { currencyFormatter } from '../util/formatting.js';
+import { useContext } from 'react';
 
 export const MealItem = ({ meal }) => {
+  const { addItemToCart } = useContext(CartContext);
+
   return (
     <li className='meal-item'>
       <article>
