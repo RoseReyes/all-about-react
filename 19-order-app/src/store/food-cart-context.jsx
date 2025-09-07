@@ -3,9 +3,10 @@ import { createContext, useReducer } from 'react';
 export const CartContext = createContext({
   items: [],
   addItemToCart: () => {},
+  removeItemToCart: () => {},
 });
 
-export const CartContextProvider = ({ children }) => {
+export const FoodCartContextProvider = ({ children }) => {
   const [shoppingCartState, shoppingCartDispatch] = useReducer(
     shoppingCartReducer,
     {
