@@ -9,13 +9,13 @@ export const CartContext = createContext({
 
 // return updated state
 const foodCartReducer = (state, action) => {
-  const updatedItems = [...state.items];
-
   switch (action.type) {
     case 'ADD_ITEM':
-      const existingCartItemIndex = updatedItems.findIndex(
+      const existingCartItemIndex = state.items.findIndex(
         (cartItem) => cartItem.id === action.item.id
       );
+
+      const updatedItems = [...state.items];
       const existingCartItem = updatedItems[existingCartItemIndex];
 
       if (existingCartItem) {
