@@ -1,7 +1,10 @@
 import { Button } from './ui/Button';
+import { CartContext } from '../store/food-cart-context.jsx';
 import foodAppImg from '../assets/logo.jpg';
+import { useContext } from 'react';
 
 export const Header = () => {
+  const cartCtx = useContext(CartContext);
   return (
     <header id='main-header'>
       <div id='title'>
@@ -14,7 +17,7 @@ export const Header = () => {
         <Button
           className='cart'
           textOnly>
-          Cart (0)
+          Cart ({cartCtx.items.length > 0 ? cartCtx.items.length : 0})
         </Button>
       </nav>
     </header>
