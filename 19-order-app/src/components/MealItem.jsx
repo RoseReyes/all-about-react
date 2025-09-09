@@ -4,7 +4,11 @@ import { currencyFormatter } from '../util/formatting.js';
 import { useContext } from 'react';
 
 export const MealItem = ({ meal }) => {
-  const { addItemToCart } = useContext(CartContext);
+  const carCtx = useContext(CartContext);
+
+  const handleAddMealToCart = () => {
+    carCtx.addItemToCart(meal);
+  };
 
   return (
     <li className='meal-item'>
@@ -21,7 +25,7 @@ export const MealItem = ({ meal }) => {
           <p className='meal-item-description'>{meal.description}</p>
         </div>
         <p className='meal-item-actions'>
-          <Button onClick={() => addItemToCart(meal.id)}>Add to Cart</Button>
+          <Button onClick={handleAddMealToCart}>Add to Cart</Button>
         </p>
       </article>
     </li>
