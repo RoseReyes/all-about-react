@@ -33,6 +33,7 @@ const foodCartReducer = (state, action) => {
 
       return {
         ...state,
+        items: updatedItems,
       };
     case 'REMOVE_ITEM':
   }
