@@ -5,6 +5,9 @@ import { useContext } from 'react';
 
 export const Header = () => {
   const cartCtx = useContext(CartContext);
+  const totalCartItems = cartCtx.items.reduce((totalNumberOfItems, item) => {
+    return totalNumberOfItems + item.quantity;
+  }, 0);
   return (
     <header id='main-header'>
       <div id='title'>
@@ -17,7 +20,7 @@ export const Header = () => {
         <Button
           className='cart'
           textOnly>
-          Cart ({cartCtx.items.length > 0 ? cartCtx.items.length : 0})
+          Cart ({totalCartItems})
         </Button>
       </nav>
     </header>
