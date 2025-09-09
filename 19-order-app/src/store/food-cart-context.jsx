@@ -63,18 +63,18 @@ export const FoodCartContextProvider = ({ children }) => {
 
   const cartContext = {
     items: cart.items,
-    addItemToCart: handleItemToCart,
-    removeItemToCart: handleRemoveItem,
+    addItemToCart,
+    removeItemToCart,
   };
 
-  const handleItemToCart = (item) => {
+  const addItemToCart = (item) => {
     dispatchCartAction({
       type: 'ADD_ITEM',
       item,
     });
   };
 
-  const handleRemoveItem = (id) => {
+  const removeItemToCart = (id) => {
     dispatchCartAction({
       type: 'REMOVE_ITEM',
       id,
