@@ -1,8 +1,8 @@
 import { Button } from './ui/Button.jsx';
 import { CartContext } from '../store/food-cart-context';
-import Modal from './ui/Modal.jsx';
+import { Modal } from './ui/Modal.jsx';
 import { UserProgressContext } from '../store/user-progress-context.jsx';
-import { currencyFormatter } from '';
+import { currencyFormatter } from '../util/formatting.js';
 import { useContext } from 'react';
 
 export const Cart = () => {
@@ -25,10 +25,10 @@ export const Cart = () => {
           </li>
         ))}
       </ul>
-      <p className='cart-total'>{currencyFormatter(cartTotal)}</p>
+      <p className='cart-total'>{currencyFormatter.format(cartTotal)}</p>
       <p className='modal-actions'>
         <Button textOnly>Close</Button>
-        <Button textOnly>Got to checkout</Button>
+        <Button>Got to checkout</Button>
       </p>
     </Modal>
   );
