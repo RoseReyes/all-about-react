@@ -1,5 +1,6 @@
 import { Button } from './ui/Button.jsx';
 import { CartContext } from '../store/food-cart-context';
+import { CartItem } from './CartItem.jsx';
 import { Modal } from './ui/Modal.jsx';
 import { UserProgressContext } from '../store/user-progress-context.jsx';
 import { currencyFormatter } from '../util/formatting.js';
@@ -24,9 +25,12 @@ export const Cart = () => {
       <h2>Your Cart</h2>
       <ul>
         {cartCtx.items.map((item) => (
-          <li key={item.id}>
-            {item.name} - {item.quantity}
-          </li>
+          <CartItem
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            price={item.price}
+          />
         ))}
       </ul>
       <p className='cart-total'>{currencyFormatter.format(cartTotal)}</p>
@@ -36,7 +40,7 @@ export const Cart = () => {
           onClick={handleCloseCart}>
           Close
         </Button>
-        <Button onClick={handleCloseCart}>Got to checkout</Button>
+        <Button onClick={handleCloseCart}>Go to checkout</Button>
       </p>
     </Modal>
   );
