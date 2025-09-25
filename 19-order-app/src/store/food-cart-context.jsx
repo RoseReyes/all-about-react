@@ -48,6 +48,7 @@ const foodCartReducer = (state, action) => {
         ...existingCartItem,
         quantity: existingCartItem.quantity - 1,
       };
+      console.log(updatedItem);
       updatedItems[existingCartItemIndex] = updatedItem;
     }
 

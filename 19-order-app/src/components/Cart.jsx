@@ -30,6 +30,8 @@ export const Cart = () => {
             name={item.name}
             quantity={item.quantity}
             price={item.price}
+            onIncrease={() => cartCtx.addItemToCart(item)}
+            onDecrease={() => cartCtx.removeItemToCart(item.id)}
           />
         ))}
       </ul>
