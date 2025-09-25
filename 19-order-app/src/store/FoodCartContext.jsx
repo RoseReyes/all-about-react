@@ -48,8 +48,9 @@ const foodCartReducer = (state, action) => {
         ...existingCartItem,
         quantity: existingCartItem.quantity - 1,
       };
-      console.log(updatedItem);
+      console.log(updatedItem, 'line 51');
       updatedItems[existingCartItemIndex] = updatedItem;
+      console.log(updatedItems, 'line 53');
     }
 
     return {
@@ -84,7 +85,7 @@ export const FoodCartContextProvider = ({ children }) => {
     removeItemToCart,
   };
 
-  console.log(cartContext);
+  console.log(cartContext.items);
 
   return (
     <CartContext.Provider value={cartContext}>{children}</CartContext.Provider>

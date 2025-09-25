@@ -1,8 +1,8 @@
 import { Button } from './ui/Button.jsx';
-import { CartContext } from '../store/food-cart-context';
+import { CartContext } from '../store/FoodCartContext.jsx';
 import { CartItem } from './CartItem.jsx';
 import { Modal } from './ui/Modal.jsx';
-import { UserProgressContext } from '../store/user-progress-context.jsx';
+import { UserProgressContext } from '../store/UserProgressContext.jsx';
 import { currencyFormatter } from '../util/formatting.js';
 import { useContext } from 'react';
 

@@ -1,5 +1,5 @@
 import { Button } from './ui/Button.jsx';
-import { CartContext } from '../store/food-cart-context.jsx';
+import { CartContext } from '../store/FoodCartContext.jsx';
 import { currencyFormatter } from '../util/formatting.js';
 import { useContext } from 'react';
 

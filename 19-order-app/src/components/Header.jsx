@@ -1,8 +1,8 @@
 import { useContext, useRef } from 'react';
 
 import { Button } from './ui/Button';
-import { CartContext } from '../store/food-cart-context.jsx';
-import { UserProgressContext } from '../store/user-progress-context.jsx';
+import { CartContext } from '../store/FoodCartContext.jsx';
+import { UserProgressContext } from '../store/UserProgressContext.jsx';
 import foodAppImg from '../assets/logo.jpg';
 
 export const Header = () => {
