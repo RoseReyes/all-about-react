@@ -9,11 +9,13 @@ export const Meals = () => {
 
   useEffect(() => {
     const fetchMeals = async () => {
+      console.log('a');
       setIsFetching(true);
 
       try {
         const response = await fetch('http://localhost:3000/meals');
         const meals = await response.json();
+        console.log(meals);
 
         setLoadedMeals(meals);
         setIsFetching(false);

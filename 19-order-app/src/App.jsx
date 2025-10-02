@@ -7,12 +7,15 @@ import { UserProgressContextProvider } from './store/UserProgressContext.jsx';
 function App() {
   return (
     // <FoodCartContextProvider>
-    <UserProgressContextProvider>
+    //   <UserProgressContextProvider>
+    <>
       <Header />
       <Meals />
       <Cart />
-    </UserProgressContextProvider>
-    //</FoodCartContextProvider>
+    </>
+
+    //   </UserProgressContextProvider>
+    // </FoodCartContextProvider>
   );
 }
 
