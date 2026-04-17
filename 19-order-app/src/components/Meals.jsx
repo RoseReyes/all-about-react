@@ -8,13 +8,13 @@ const Meals = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch('http://localhost:3000/meals');
-      const resData = await response.json();
+      const meals = await response.json();
 
       if (!response.ok) {
         //... do something with the error
       }
 
-      setLoadedMeals(resData);
+      setLoadedMeals(meals);
     };
 
     fetchMeals();
